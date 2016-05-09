@@ -27,7 +27,7 @@ exports.dev = function (cbk) {
     }).loaders({
         test: /\.vdoc$/,
         loader: 'vdoc'
-    }).setExtract(['sty', 'css', 'less', 'scss', 'stylus', 'vue'], '[name].css').hook(function () {
+    }).hook(function () {
         !!cbk && cbk.call(this);
     }.bind(wb)).run();
 };

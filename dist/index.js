@@ -5,27 +5,32 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Vdoc;
 
-var _init = require('./init');
+var _api = require('./api');
 
-var _init2 = _interopRequireDefault(_init);
+var _api2 = _interopRequireDefault(_api);
 
-var _env = require('./env');
+var _process = require('./process');
 
-var _env2 = _interopRequireDefault(_env);
+var _process2 = _interopRequireDefault(_process);
 
-var _util = require('./util');
+var _vwm = require('./vwm');
 
-var _util2 = _interopRequireDefault(_util);
+var _vwm2 = _interopRequireDefault(_vwm);
+
+var _cache = require('./cache');
+
+var _cache2 = _interopRequireDefault(_cache);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Vdoc(options) {
-    this.configfile = './.vodc.vdoc';
+    // manual route
     this._route = {};
-    this.data = {};
+    // the mout data
     this.moutData = {};
 }
 
-(0, _init2.default)(Vdoc);
-(0, _env2.default)(Vdoc);
-(0, _util2.default)(Vdoc);
+(0, _api2.default)(Vdoc);
+(0, _process2.default)(Vdoc);
+(0, _vwm2.default)(Vdoc);
+(0, _cache2.default)(Vdoc);
