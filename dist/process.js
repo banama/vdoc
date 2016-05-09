@@ -13,7 +13,7 @@ exports.default = function (Vdoc) {
     Vdoc.prototype.filter = function (key, val) {
         var route = [];
         for (var data in this.moutData) {
-            if (this.moutData.hasOwnProperty(data) && !!key && this.moutData[data][key].indexOf(val) > -1) {
+            if ((0, _utils.hasOwn)(this.moutData, data) && !!key && this.moutData[data][key].indexOf(val) > -1) {
                 route.push(this.moutData[data]);
             }
         }

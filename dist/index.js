@@ -21,13 +21,17 @@ var _cache = require('./cache');
 
 var _cache2 = _interopRequireDefault(_cache);
 
+var _init = require('./init');
+
+var _init2 = _interopRequireDefault(_init);
+
+var _utils = require('./utils');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Vdoc(options) {
-    // manual route
-    this._route = {};
-    // the mout data
-    this.moutData = {};
+    (0, _init2.default)(this);
+    !!options && (0, _utils.mergeData)(this, options);
 }
 
 (0, _api2.default)(Vdoc);
