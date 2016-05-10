@@ -64,5 +64,8 @@
     "vuex": "^0.6.2",
     "json-loader": "^0.5.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-standard": "^5.3.1"
+  }
 }

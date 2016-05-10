@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (Vdoc) {
-
     // Vdoc Object api
 
     Vdoc.prototype.mout = function (data) {
@@ -16,15 +15,15 @@ exports.default = function (Vdoc) {
     };
 
     Vdoc.prototype.use = function (action, handler) {
-        if (!!this[action]) {
-            throw new Error("[vdoc] you have had a property " + action);
+        if (this[action]) {
+            throw new Error('[vdoc] you have had a property ' + action);
         }
-        this[action] = typeof handler == 'function' ? handler.bind(this) : handler;
+        this[action] = typeof handler === 'function' ? handler.bind(this) : handler;
     };
 
     Vdoc.prototype.fresh = function () {
         for (var i in this.moutData) {
-            if ((0, _utils.hasOwn)(this.moutData), i) {
+            if ((0, _utils.hasOwn)(this.moutData, i)) {
                 (0, _utils.mergeData)(this.moutData[i], this.moutData[i].config);
             }
         }
@@ -32,5 +31,3 @@ exports.default = function (Vdoc) {
 };
 
 var _utils = require('./utils');
-
-;

@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (Vdoc) {
-
     var Cache = function Cache() {
         this._cache = Object.create(null);
     };
@@ -15,7 +14,7 @@ exports.default = function (Vdoc) {
             this._cache[caller] = {};
         }
         var val = this._cache[caller][key];
-        return !!val ? (0, _utils.mergeData)(ref, val) && val : this.put(caller, key, ref);
+        return val ? (0, _utils.mergeData)(ref, val) && val : this.put(caller, key, ref);
     };
 
     Cache.prototype.put = function (caller, key, ref) {

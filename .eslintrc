@@ -1,0 +1,8 @@
+{
+  "extends": "standard",
+  "rules": {
+    "arrow-parens": [2, "as-needed"],
+    "indent": [2, 4],
+    "no-eval": [1, {"allowIndirect": false}]
+  }
+}
