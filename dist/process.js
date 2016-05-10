@@ -107,6 +107,7 @@ exports.default = function (Vdoc) {
 
     Vdoc.prototype._processSubtitle = function (dom, route) {
         var ary = [];
+        console.log(dom);
         if (this.cache('processSubtitle', route, ary)) {
             return ary;
         }
@@ -126,7 +127,7 @@ exports.default = function (Vdoc) {
 
     Vdoc.prototype.planish = function (subtitles) {
         if ((typeof subtitles === 'undefined' ? 'undefined' : _typeof(subtitles)) !== 'object' || !Array.isArray(subtitles)) {
-            throw new Error('[vdoc] srot need a array as params');
+            throw new Error('[vdoc] planish need a array as params');
         }
 
         var anchor = subtitles[0].deep;

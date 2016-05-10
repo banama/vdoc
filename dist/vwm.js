@@ -26,6 +26,7 @@ exports.default = function (Vdoc) {
             });
         });
         self.router.start(self.Vue.extend({}), el);
+        return self.router;
     };
 
     Vdoc.prototype.theme = function (themes) {
@@ -41,6 +42,10 @@ exports.default = function (Vdoc) {
         if (this._route[path]) {
             throw new Error('[vdoc] you have had a same route ' + path);
         }
+        this._route[path] = {
+            route: path,
+            component: handler
+        };
         if (this.router) {
             this.router.on(path, {
                 component: handler,
@@ -48,10 +53,6 @@ exports.default = function (Vdoc) {
             });
             return true;
         }
-        this._route[path] = {
-            route: path,
-            component: handler
-        };
     };
 
     Vdoc.prototype.getDoc = function (route, cbk) {

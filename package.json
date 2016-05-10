@@ -4,7 +4,10 @@
   "description": "A doc generator tool build on Vuejs.",
   "main": "index.js",
   "scripts": {
-    "build": "babel lib --out-dir dist --presets babel-preset-es2015"
+    "build": "babel lib --out-dir dist --presets babel-preset-es2015",
+    "eslint": "eslint ./lib",
+    "cover": "node_modules/karma/bin/karma start test/karma.cover.config.js",
+    "unit": "node_modules/karma/bin/karma start test/karma.unit.config.js"
   },
   "repository": {
     "type": "git",
@@ -38,9 +41,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.21.0",
     "cssnano": "^3.5.2",
-    "eslint": "^2.5.3",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.14.0",
@@ -65,7 +65,22 @@
     "json-loader": "^0.5.4"
   },
   "devDependencies": {
-    "eslint": "^2.9.0",
-    "eslint-config-standard": "^5.3.1"
+    "eslint": "^2.5.3",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-react": "^4.2.3",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-webpack": "^1.7.0",
+    "object-assign": "^4.1.0",
+    "phantomjs": "^2.1.7+deprecated",
+    "istanbul-instrumenter-loader": "^0.2.0"
   }
 }
