@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "babel lib --out-dir dist --presets babel-preset-es2015",
-    "eslint": "eslint ./lib",
+    "lint": "eslint ./lib",
     "cover": "node_modules/karma/bin/karma start test/karma.cover.config.js",
-    "unit": "node_modules/karma/bin/karma start test/karma.unit.config.js"
+    "unit": "node_modules/karma/bin/karma start test/karma.unit.config.js",
+    "sauce": "node_modules/karma/bin/karma start test/karma.sauce.config.js",
+    "test": "npm run build && npm run lint && npm run unit"
   },
   "repository": {
     "type": "git",
@@ -82,6 +84,8 @@
     "object-assign": "^4.1.0",
     "phantomjs": "^2.1.7+deprecated",
     "istanbul-instrumenter-loader": "^0.2.0",
-    "immutable": "^3.8.1"
+    "immutable": "^3.8.1",
+    "codecov": "^1.0.1",
+    "karma-sauce-launcher": "^1.0.0"
   }
 }

@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 5
+
+general:
+  branches:
+      - master
+
+test:
+  override:
+    - bash ./ci.sh
