@@ -81,6 +81,7 @@
     "karma-webpack": "^1.7.0",
     "object-assign": "^4.1.0",
     "phantomjs": "^2.1.7+deprecated",
-    "istanbul-instrumenter-loader": "^0.2.0"
+    "istanbul-instrumenter-loader": "^0.2.0",
+    "immutable": "^3.8.1"
   }
 }

@@ -11,7 +11,6 @@ exports.default = function (Vdoc) {
         // mout the vdoc config data(make by webpack)
         this.moutData = data;
         this.fresh();
-        this.register();
     };
 
     Vdoc.prototype.use = function (action, handler) {

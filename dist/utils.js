@@ -34,15 +34,15 @@ function hasOwn(obj, key) {
 }
 
 function keys(obj) {
-    return Object.keys ? Object.keys(obj) : function () {
-        var ary = [];
+    var ary = [];
+    if (isObject(obj)) {
         for (var i in obj) {
             if (hasOwn(obj, i)) {
                 ary.push(i);
             }
         }
-        return ary;
-    }();
+    }
+    return ary;
 }
 
 function isArray(value) {

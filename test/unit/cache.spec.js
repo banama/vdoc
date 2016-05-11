@@ -1,16 +1,15 @@
-var Vdoc = require('../../dist/index.js').default
-var Vue = require('vue')
-var vdoc = new Vdoc({
-    Vue: Vue
-})
-vdoc.mout({route: {
-    name: 'index',
-    config: {
-        A: {}
-    }
-}})
-
 describe('test cache', function () {
+    var Vdoc = require('../../dist/index.js').default
+    var Vue = require('vue')
+    var vdoc = new Vdoc({
+        Vue: Vue
+    })
+    vdoc.mout({route: {
+        name: 'index',
+        config: {
+            A: {}
+        }
+    }})
 
     it('cache', function () {
         var ref1 = [1,2,3]

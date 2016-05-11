@@ -5,6 +5,7 @@ describe('test Util', function () {
     it('isObject', function () {
         expect(Util.isObject({})).toBeTruthy()
         expect(Util.isObject(1)).toBeFalsy()
+        expect(Util.isObject()).toBeFalsy()
     })
 
     it('mergeData', function () {

@@ -32,6 +32,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Vdoc(options) {
     (0, _init2.default)(this);
     !!options && (0, _utils.mergeData)(this, options);
+    this.register();
 }
 
 (0, _api2.default)(Vdoc);

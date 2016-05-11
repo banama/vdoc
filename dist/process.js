@@ -38,14 +38,10 @@ exports.default = function (Vdoc) {
         }
 
         var sorts = [];
-        // if(this.cache('sort', arguments, sorts)){
-        // can't hit cache
-        // return sorts
-        // }
-
         if (vdoc.length <= 1) {
-            return vdoc;
+            return sorts.concat(vdoc);
         }
+
         var index = Math.floor(vdoc.length / 2);
         var anchor = vdoc.splice(index, 1)[0];
         var left = [];
@@ -66,7 +62,7 @@ exports.default = function (Vdoc) {
                 }
             }
         }
-        sorts = sorts.concat(this.sort(left, order).concat([anchor], this.sort(right, order)));
+        sorts = sorts.concat(this.sort(left, orderBy), [anchor], this.sort(right, orderBy));
         return sorts;
     };
 
@@ -78,7 +74,7 @@ exports.default = function (Vdoc) {
             try {
                 window.eval(script.innerHTML);
             } catch (e) {
-                console.warn('[vdoc markdown error] ' + e + '\n' + script.innerHTML);
+                console.log('[vdoc markdown error] ' + e + '\n' + script.innerHTML);
             }
         });
     };
@@ -107,7 +103,6 @@ exports.default = function (Vdoc) {
 
     Vdoc.prototype._processSubtitle = function (dom, route) {
         var ary = [];
-        console.log(dom);
         if (this.cache('processSubtitle', route, ary)) {
             return ary;
         }
