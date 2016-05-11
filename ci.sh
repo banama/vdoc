@@ -5,7 +5,7 @@ then
   npm run build
   npm run cover
   cat ./coverage/lcov.info | ./node_modules/.bin/codecov
-  npm run sauce-all
+  npm run sauce
 else
   npm test
 fi

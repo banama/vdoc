@@ -32,7 +32,6 @@ describe('test api', function () {
             mixins: [vdoc.mixin],
             template: "<h1>1</h1>",
             ready: function(){
-                console.log(this)
             }
         })
         var app = new Vue({
@@ -42,8 +41,6 @@ describe('test api', function () {
             },
             tamplate: "<vm></vm>",
             ready: function(){
-                console.log(Vue.options.components.testmixin)
-                console.log('-----------===========')
             }
         })
     })
