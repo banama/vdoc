@@ -1,0 +1,18 @@
+<config lang='yaml'>
+title: "安装"
+subtitle: true
+order: 2
+</config>
+
+<template>
+## 兼容性
+
+Vdoc 基于Vuejs实现，因此Vdoc和Vuejs一样不支持 IE8 及其以下版本，仅支持所有兼容 ECMAScript 5 的浏览器。
+
+## NPM
+
+``` js
+$ npm install vdoc
+```
+
+</template>

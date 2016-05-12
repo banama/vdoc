@@ -40,13 +40,7 @@ exports.live = function (serverOptions, cbk) {
     }).loaders({
         test: /\.vdoc$/,
         loader: 'vdoc'
-    }).setEntry({
-        main: ['./main.js']
-    }).setHtml([{
-        template: "./template/index.html",
-        filename: "index.html",
-        chunk: ['main']
-    }]).hook(function () {
+    }).hook(function () {
         !!cbk && cbk.call(this);
     }.bind(wb)).live(serverOptions);
 }

@@ -1,3 +1,8 @@
 /node_modules/*
 *swp
 coverage
+vdoc/
+dist/
+test/
+ci.sh
+circle.yaml

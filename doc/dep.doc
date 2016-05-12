@@ -1,0 +1,32 @@
+<config lang='yaml'>
+title: "依赖"
+subtitle: true
+order: 6
+</config>
+
+<template>
+## vdoc-loader
+
+[vdoc-loader](https://github.com/banama/vdoc-loader) 是用来require生成的文档的webpack-loader.
+
+## vdoc-loader-plugin
+
+[vdoc-webpack-plugin](https://github.com/banama/vdoc-webpack-plugin) 是一个webpack插件，在webpack构建过程中，该插件将文档信息整理一个配置文件用于被 vdoc-loader 引用。
+
+## doc-loader
+
+[doc-loader](https://github.com/banama/doc-loader) 是vue-loader的一个fork版本。所有文档都是通过该loader require.
+
+## json2-loader
+
+[json2-loader](https://github.com/banama/json2-loader) 是一个json loader，不同于json-loader返回一个module，该模块返回的是一个json字符串。
+
+## md-loader
+
+[md-loader](https://github.com/banama/md-loader) 是一个为vdoc定制的markdown-loader, 并整合了highlight.js。它参考了hexo-utils, markdown-loader等库的代码。
+
+## webpack-boost
+
+[webpack-boost](https://github.com/banama/webpack-boost) 将webpack配置封装成易用的api。通过这个库辅助vdoc的打包构建。
+
+</template>

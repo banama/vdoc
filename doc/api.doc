@@ -1,0 +1,192 @@
+<config lang='yaml'>
+title: "API"
+subtitle: true
+order: 5
+</config>
+
+<template>
+一个Vdoc文档初始化完成后
+## _route
+- **类型: ** 属性
+- **用法: **
+    addRoute 手动添加的路由
+
+## moutData
+- **类型: ** 属性
+- **用法: **
+    mout 挂载给vdoc的文档配置数据
+    ``` js
+    {
+        '/doc/guide': {
+            root: "",
+            dir: "./doc",
+            base: "guide.doc",
+            ext: ".doc",
+            path: "./doc/guide.doc",
+            route: "/doc/guide",
+            config: {
+                title: "",
+                subtitle: true,
+                type: "guide",
+                order: 1,
+                template: "layout"
+            }
+        }
+    }
+    ```
+
+## mixin
+- **类型: ** 属性
+- **用法: **
+    ``` js
+    computed: {
+        // 文档数据
+        doc{
+            html<String>
+            ...
+            // 其他组件module.exports 的属性
+        }
+        subtitles[{
+            title<String>
+            index<Int>
+            deep<Int>
+        }]
+    }
+    ```
+
+## start
+- **类型: ** 方法
+- **参数: **
+    - `{vue el} el`
+    - `{vue-router options} options`
+  **返回**
+    返回一个vue-router对象
+- **用法: **
+    启动一个vue app. el 为vue-router初始化的el，options为vue-router参数
+
+## theme
+- **类型: ** 方法
+- **参数: **
+    - `{object} themes`
+- **用法: **
+    安装vdoc主题，themes对象的key为组件的名字，value为合法的vue组件对象
+
+## addRoute
+- **类型: ** 方法
+- **参数: **
+    - `{string} path`
+    - `{components object} handler`
+- **用法: **
+    增加一个路由。path为路由的路径，如'/doc/api/index'; handler为合法的vue组件对象。
+
+## getDoc
+- **类型: ** 方法
+- **参数: **
+    - `{String} route`
+    - `{Function} cbk`
+- **用法: **
+    异步获取文档的内容，route为路由，cbk为获取文档成功后的回调。
+
+## mout
+- **类型: ** 方法
+- **参数: **
+    - `{Object} data`
+- **用法: **
+    将数据挂载到vdoc.moutData，一般参数data为vdoc-loader处理过的文档配置文件。
+
+## use
+- **类型: ** 方法
+- **参数: **
+    - `{*} property`
+    - `{*} handler`
+- **用法: **
+    给vdoc挂载属性，若挂载已存在属性将会抛错。
+
+## filter
+- **类型: ** 方法
+- **参数: **
+    - `{String} key`
+    - `{String} val`
+- **返回**
+    返回一个文档数据的数组
+- **用法: **
+    过滤文档，例如根据路径过滤文档
+    ``` js
+    vdoc.filter('path', 'api')
+    // 将会对所有挂载在moutData的文档数据的path进行过滤，匹配出路径中含有`api` 的文档数据，返回一个数组
+    ```
+## getType
+- **类型: ** 方法
+- **参数: **
+    - `{String} type`
+- **返回**
+    返回一个文档数据的数组
+- **用法: **
+    和filter类似，返回文档熟路，根据类型过滤文档
+    ``` js
+    vdoc.getType('example')
+    // 将会对所有挂载在moutData的文档数据的type进行过滤，匹配type为example的文档数据，返回一个数组
+    ```
+
+## sort
+- **类型: ** 方法
+- **参数: **
+    - `{Array} docDataArray`
+    - `{Boolean} orderBy`
+- **返回**
+    返回一个文档数据的数组
+- **用法: **
+    根据文档的order，对getType或filter返回的数据进行排序。orderBy 为 true 则为正序，反之则为倒序。
+    ``` js
+    vdoc.sort(vdoc.getType('example'))
+    ```
+
+## planish
+- **类型: ** 方法
+- **参数: **
+    - `{Array} Subtitles`
+- **返回**
+    返回一个新的subtitles
+- **用法: **
+    当文档配置subtitle为真时，将会分析出该文档的subtitle挂载到moutData对应的对象中。pliansh 方法可以压平subtitle深度。
+    ``` html
+    ## h2
+    ## 4h
+    ```
+    以上 markdnow 生成 html 为
+    ``` html
+    <h2></h2>
+    <h4></h4>
+    ```
+    若subtitle为true，此时subtitles 为
+    ``` js
+    [
+        {
+            index: 0,
+            title: "h2",
+            deep: 1
+        },
+        {
+            index: 1,
+            title: "h4",
+            deep: 3
+        }
+    ]
+    ```
+    若执行 planish(subtitles) 得到的新subtitles 为
+    ``` js
+    [
+        {
+            index: 0,
+            title: "h2",
+            deep: 0
+        },
+        {
+            index: 1,
+            title: "h4",
+            deep: 2
+        }
+    ]
+    ```
+
+</template>

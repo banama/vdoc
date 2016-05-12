@@ -1,0 +1,121 @@
+<config lang='yaml'>
+title: "使用"
+subtitle: true
+order: 3
+</config>
+
+<template>
+## 配置打包流程
+
+``` js
+var VdocPlugin = require('Vdoc-webpack-plugin')
+var cbk = function () {
+    // Vdoc 的构建配置基于一个webpack的库，
+    // 详细 api 请见 https://github.com/banama/webpack-boost
+    this.setEntry({
+        main: ['./src/main.js']    // 配置 webpack 入口文件
+    })
+    this.setHtml({
+        template: "./template/index.html",
+        filename: "index.html",    // html 入口文件
+        chunk: ['main']
+    })
+    this.loaders({
+        test: /\.styl$/,           // 配置loader
+        loader: 'stylus'
+    })
+    this.loaders({
+        test: /\.png$/,
+        loader: 'url-loader'
+    })
+    this.plugins(
+        new VdocPlugin({
+            doc: "./doc",          // 制定文档目录
+            outFile: "./Vdoc.Vdoc" // 生成配置文件
+        })
+    )
+}
+```
+
+开启 webpack-dev-server 模式
+``` js
+var build = require('Vdoc/build.js')
+build.live({
+}, cbk)
+```
+
+开发构建模式
+``` js
+var build = require('Vdoc/build.js')
+build.dev(cbk)
+```
+
+生产环境模式
+``` js
+var build = require('Vdoc/build.js')
+build.pro(cbk)
+```
+
+## 使用
+
+在构建一个文档之前往往需要简单的配置，Vdoc 仅支持node api方式的配置，下面是一个示例。
+
+``` js
+import Vdoc from '../dist/index.js'
+var Vdoc = new Vdoc({
+    Vue: Vue
+})
+Vdoc.mout(require("../Vdoc.Vdoc"))
+Vdoc.theme(require('../theme'))
+Vdoc.start("#app", {history: false})
+module.exports = Vdoc
+```
+
+Vdoc 的配置是一个js文件，它是webpack的入口(entry)文件。
+
+### Vdoc实例
+
+每个 Vdoc 应用的起步都是通过构造函数 Vdoc 创建一个 Vdoc 的根实例
+``` js
+var Vdoc = new Vdoc({
+    // 配置
+})
+// 目前每一个Vdoc的实例只需要将Vue的对象挂载到Vue即可。
+```
+
+### 挂载文档数据
+
+在打包的配置中用到了 Vdoc-webpack-plugin, 其中配置项 outfile 即为webpack生成的 Vdoc 需要的文档配置信息。再实例化Vdoc之后需要将该文件数据挂载到 Vdoc. 需注意webpack require该文件需要用到 Vdoc-loader，请将outfile文件扩展名定为 Vdoc ,或者手动配置webpack的loader
+
+
+### 配置主题
+
+Vdoc 提供了一个api `theme` 可安装主题，内部其实是将 Vue 的组件挂在 `Vue.options.components`，方便Vdoc使用。`Vdoc.theme` 也可安装npm上的 Vdoc-them 模块。更多有关主题内容详见 `Vdoc theme api` 和 [示例主题](https://github.com/banama/cn-vue-Vdoc/tree/master)。
+
+### 开始
+
+Vdoc 依赖于 vue-router 构建单页文旦。Vdoc.start 接收一个初始化vue的el 和 规范的vue-router配置作为参数。
+
+## 写文档
+
+熟悉vuejs开发的同学一定了解 vue-loader, 为了更方面写文档。专门为Vdoc 开发了一个 vue-loader 的 fork 版本 doc-loader。在doc-loader中支持template, script 和 config 标签。其中template标签书写文档，config标签书写配置，一般来说只配置这两个标签就够了。script标签和vue-loader的script标签相同, config的配置信息在Vdoc应用启动一个app后就可以拿到。而`script`的信息在异步加载文档之后才能拿到。
+
+Vdoc 现在支持的配置
+```
+<config>
+title       文档的标题
+type        文档的类型
+subtitle    文档是否展示子标题
+order       文档顺序
+template    文档的模板
+route       文档的定制路由
+</config>
+```
+
+和vue-loader相同，doc-loader也可以配置每个标签内容的webpack-loader。例如
+``` js
+<config lang="yaml">
+</config>
+```
+
+</template>

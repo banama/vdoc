@@ -1,0 +1,27 @@
+<config lang='yaml'>
+title: "开发主题"
+subtitle: true
+order: 4
+</config>
+
+<template>
+
+为Vdoc开发主题是一件非常容易的事情，在Vdoc主题中的每个元素都是合法的vue组件，因此你可以用任何你熟悉的vue开发方式为Vdoc开发主题。vdco为vue组件提供了一个混合`mixins`，通过混合你可以拿到文档的所有数据。
+
+``` js
+import vdoc from '../src/main'
+Vue.component('com', {
+    mixins: [vdoc.mixin],
+    template: "<div>{{{doc.html}}}</div>",
+    ready: function () {
+        console.log(this.vdoc) // Vdoc 实例
+        console.log(this.doc) // doc 对象，属性包括html和script模块的属性
+        console.log(this.subtitiles) // 子标题数组，若subtitle为false则为空数组
+    }
+})
+```
+
+以上即为一个可用的Vdoc主题组件。
+
+
+</template>
