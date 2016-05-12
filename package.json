@@ -1,6 +1,6 @@
 {
   "name": "vdoc",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A doc generator tool build on Vuejs.",
   "main": "index.js",
   "scripts": {

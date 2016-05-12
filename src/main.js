@@ -1,4 +1,4 @@
-import Vdoc from '../dist/index.js'
+import Vdoc from '../index.js'
 var vdoc = new Vdoc({
     Vue: Vue
 })
