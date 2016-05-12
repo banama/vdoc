@@ -4,7 +4,7 @@
   "description": "A doc generator tool build on Vuejs.",
   "main": "index.js",
   "scripts": {
-    "publish": "rm -rf vdoc && node pro.js && cd vdoc && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push ssh://git@github_banama/banama/vdoc gh-pages --force"
+    "doc": "rm -rf vdoc && node pro.js && cd vdoc && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push ssh://git@github_banama/banama/vdoc gh-pages --force"
   },
   "repository": {
     "type": "git",
