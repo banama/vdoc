@@ -5,6 +5,13 @@ order: 3
 </config>
 
 <template>
+
+示例项目
+
+[Vdoc实现的Vue中文文档](https://github.com/banama/cn-vue-vdoc)
+
+[Vdoc文档](https://github.com/banama/vdoc/tree/vdoc-doc)
+
 ## 配置打包流程
 
 ``` js
@@ -37,20 +44,20 @@ var cbk = function () {
 }
 ```
 
-开启 webpack-dev-server 模式
+### 开启 webpack-dev-server 模式
 ``` js
 var build = require('Vdoc/build.js')
 build.live({
 }, cbk)
 ```
 
-开发构建模式
+### 开发构建模式
 ``` js
 var build = require('Vdoc/build.js')
 build.dev(cbk)
 ```
 
-生产环境模式
+### 生产环境模式
 ``` js
 var build = require('Vdoc/build.js')
 build.pro(cbk)

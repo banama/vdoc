@@ -7,7 +7,7 @@ order: 6
 <template>
 ## vdoc-loader
 
-[vdoc-loader](https://github.com/banama/vdoc-loader) 是用来require生成的文档的webpack-loader.
+[vdoc-loader](https://github.com/banama/vdoc-loader) 是用来require生成的文档的webpack-loader。
 
 ## vdoc-loader-plugin
 
@@ -15,7 +15,7 @@ order: 6
 
 ## doc-loader
 
-[doc-loader](https://github.com/banama/doc-loader) 是vue-loader的一个fork版本。所有文档都是通过该loader require.
+[doc-loader](https://github.com/banama/doc-loader) 是vue-loader的一个fork版本。所有文档都是通过该loader require。
 
 ## json2-loader
 

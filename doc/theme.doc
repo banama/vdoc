@@ -23,5 +23,4 @@ Vue.component('com', {
 
 以上即为一个可用的Vdoc主题组件。
 
-
 </template>

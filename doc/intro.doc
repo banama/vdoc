@@ -7,10 +7,11 @@ order: 1
 <template>
 ## 什么是Vdoc
 
-Vdoc 是一款基于vuejs和webpack实现的文档创建工具。通过Vdoc可以很方便的通过markdown书写文档。当然你也可以用Vdoc来写博客。
+Vdoc 是一款基于vuejs和webpack实现的文档创建工具。
 
 ## 特点
 
 Vdoc 非常简洁，得益于vue和webpack的帮助，可以实现纯前端的文档。这听起来类似于hexo和jekyll等博客工具，但不同于以往的博客创建工具，Vdoc 生成的文档是一个单页的应用。如果你熟悉 Vuejs, 你可以以组件的形式来开发自己的主题，vdoc的vue主题中没有那么多的配置，你可以按照你的想象处理view和数据。同时也可以借助webpack来实现更加具有想象力的功能。
 
+当然由于生成的单页应用，所以SEO是十分不友好的。
 </template>
