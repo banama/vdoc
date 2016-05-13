@@ -1,1 +1,3 @@
-Dcoument is coming.
+Loading...
+
+[文档](http://banama.github.io/vdoc/#!/doc/intro)
